@@ -321,3 +321,39 @@ Merge-ից հետո նոր task-ի համար՝ նորից §7.1 (`main`-ից **
 - Language switcher-ը պարզ dropdown ա, design-ը դեռ չկա
 - `next/image` (հիմա `<img>`)
 - `not-found.jsx`, `error.jsx`-ի տեքստերը՝ hardcode, ոչ multi-language
+
+
+## 10. `db.json`-ի կարճ օրինակ
+
+Սա **ամբողջական `db_orinak_example`-ի կրճատ տարբերակն ա** (մի քանի collection, յուրաքանչյուրում ընդամենը 2-3 տող)՝ պարզապես ցույց տալու ֆորմատը։ Իսկական, ամբողջական տվյալների համար բացիր հենց `db_orinak_example`-ը։
+
+```json
+{
+  "logos": { "id": 1, "title": "Fruit Food" },
+  "languages": [
+    { "id": 1, "code": "am", "label": "Հայ" },
+    { "id": 2, "code": "ru", "label": "Рус" },
+    { "id": 3, "code": "en", "label": "Eng" }
+  ],
+  "navbars": [
+    { "id": 1, "lang": "am", "title": "Գլխավոր", "url": "/" },
+    { "id": 2, "lang": "en", "title": "Home", "url": "/" }
+  ],
+  "categories": [
+    { "id": 1, "lang": "am", "slug": "dried-fruits", "name": "Չրեր և չրային պաստեղներ", "image": "/images/categories/dried-fruits.jpg" },
+    { "id": 2, "lang": "ru", "slug": "dried-fruits", "name": "Сухофрукты и фруктовая пастила", "image": "/images/categories/dried-fruits.jpg" },
+    { "id": 3, "lang": "en", "slug": "dried-fruits", "name": "Dried fruits & fruit leathers", "image": "/images/categories/dried-fruits.jpg" }
+  ],
+  "products": [
+    { "id": 1, "lang": "am", "slug": "chrer-200", "category_slug": "dried-fruits", "name": "Չրեր", "weight_value": 200, "weight_unit": "g" },
+    { "id": 2, "lang": "en", "slug": "chrer-200", "category_slug": "dried-fruits", "name": "Dried fruits", "weight_value": 200, "weight_unit": "g" }
+  ],
+  "faq": [
+    { "id": 1, "lang": "am", "question": "Արդյո՞ք ձեր արտադրանքը բնական է", "answer": "Այո, բացառապես բնական հումքից։" },
+    { "id": 2, "lang": "ru", "question": "Ваша продукция натуральная?", "answer": "Да, только натуральное сырьё." },
+    { "id": 3, "lang": "en", "question": "Are your products natural?", "answer": "Yes, exclusively natural ingredients." }
+  ]
+}
+```
+
+Ինչ նկատել այս օրինակից (§5.3-ի կանոնները գործողության մեջ)․ ամեն լեզու՝ **առանձին տող** (ոչ `{ "am": "...", "ru": "..." }`), `id`-ն եզակի ա ամբողջ collection-ում, `slug`/`code`-ը՝ **lowercase kebab-case** ու նույնը բոլոր լեզուների տողերում, իսկ collection/field անունները՝ **snake_case**։
