@@ -316,7 +316,8 @@ Merge-ից հետո նոր task-ի համար՝ նորից §7.1 (`main`-ից **
 
 ## 9. Ինչ դեռ չկա
 
-- `about` / `geography` էջերը (db collection-ները արդեն կան օրինակում)
+- `about-us` / `geography` էջերի բովանդակությունը. folder/skeleton-ը (page.jsx, actions.js, `_components/`) արդեն կա, բայց բոլոր ֆայլերը դատարկ են — ամեն մեկն իր section-ը գրելու ա §6-ի աղյուսակի համաձայն
+- Single product page (`app/products/[id]`)-ի բովանդակությունը՝ նույն կերպ, դատարկ skeleton (Arnak + Vahag, §6)
 - `public/images/`-ում նկարները (db-ում path-երը գրված են, ֆայլերը՝ դեռ ոչ)
 - Language switcher-ը պարզ dropdown ա, design-ը դեռ չկա
 - `next/image` (հիմա `<img>`)
