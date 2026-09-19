@@ -192,22 +192,26 @@ export default async function AboutPage() {
 
 ## 6. Ով ինչ ա անում
 
-| Բաժին | Ով | Folder | db collection | Branch |
-|---|---|---|---|---|
-| Team lead / review / ինտեգրում | Vahe | ամբողջ repo | `db_orinak_example` | `main` |
-| Backend (Django, վերջում) | Narek | `/backend` | model-երը՝ db collection-ներից | `feature/narek-backend` |
-| Header + Footer + Intro | Vahag | `components/header`, `components/footer`, home hero | `navbars`, `footer_labels`, `about_intro` | `feature/vahag-header-footer` |
-| Արտադրանք preview + stats | Ashot | `app/page.jsx`-ի «Արտադրանք» հատված | `stats` | `feature/ashot-home-products` |
-| Փիլիսոփայություն + FAQ | Saten | `app/about/_components/` | `faq` | `feature/saten-faq` |
-| Կատալոգ (3 էջ) | Elina | `app/catalog/*` | `categories`, `products` | `feature/elina-catalog` |
-| Single product page | Arnak + Vahag | `app/catalog/[categorySlug]/[productSlug]/*` | `products`, `tags` | `feature/arnak-product` |
-| Կապ | Vahram | `app/contact/*` | `contact_page_contents`, `contact_messages` | `feature/vahram-contact` |
-| Աշխարհագրություն | Sergey | `app/geography/*` | `export_countries` | `feature/sergey-geography` |
-| Բնություն / որակ / brand | Milena | `app/about/_components/`-ի հատված | `brands` | `feature/milena-brands` |
-| Ararat valley / trust / full range | Hamlet | `app/about/_components/`-ի հատված | նոր collection | `feature/hamlet-about` |
-| Արտահանում | Jor | `app/geography/_components/`-ի export հատված | նոր collection | `feature/jor-export` |
+Ստորև՝ նախագծի վերջնական Information Architecture-ը (IA & Routes), ըստ բոլոր էջերի, բաժինների ու պատասխանատուների։ Folder-ի սյունակը ցույց ա տալիս, թե կոնկրետ որ ֆայլում ա գրվում այս section-ը (already ստեղծված են որպես դատարկ skeleton-ֆայլեր)։
 
-Եթե 2 հոգի նույն folder-ում են (օրինակ `app/about`)՝ ամեն մեկը գրում ա **իր առանձին component-ը** `_components/`-ում, իսկ `page.jsx`-ում ընդհամենը import ա անում։ `page.jsx`-ում conflict-ը Vahe-ն ա լուծում ինտեգրման ժամանակ։
+| Էջ / Section | Ով | Folder | Route |
+|---|---|---|---|
+| Team lead / review / ինտեգրում | Vahe | ամբողջ repo | `main` |
+| Backend (Django, վերջում) | Narek | `/backend` | — |
+| Header + Footer | Vahag | `components/header/*`, `components/footer/*` | ընդհանուր |
+| Home · Section 1 (Hero) | Vahag | `app/_components/Hero.jsx` | `/` |
+| Home · Section 2 («Մեր տեսականին») | Ashot | `app/_components/Assortment.jsx` | `/` |
+| Home · Section 3 (Փիլիսոփայություն) + Section 4 (FAQ) | Saten | `app/_components/Philosophy.jsx`, `app/_components/Faq.jsx` | `/` (→ `/about-us#philosophy`) |
+| Home · Section 5 (Համագործակցության CTA) | Vahram | `app/_components/PartnerCta.jsx` | `/` (→ `/contact`) |
+| Կատալոգ (3 էջ) | Elina | `app/catalog/*` | `/catalog`, `/catalog/dried-fruits`, `/catalog/chocolate-covered` |
+| Ապրանքի մանրամասն էջ | Arnak + Vahag | `app/products/[id]/*` | `/products/[id]` |
+| About Us · Section 1–3 (Բնական որակ, Փիլիսոփայություն, Ապրանքանիշեր) | Milena | `app/about-us/_components/NaturalQuality.jsx`, `Philosophy.jsx`, `Brands.jsx` | `/about-us` |
+| About Us · Section 4–6 (Արտադրություն, Վստահություն, Որակ ու բնականություն) | Hamlet | `app/about-us/_components/Production.jsx`, `WhyTrustUs.jsx`, `QualityNaturalness.jsx` | `/about-us` |
+| About Us · Section 7–9 (Արտահանում, Գործարան, «Մենք հավատում ենք») | Jor | `app/about-us/_components/ExportCooperation.jsx`, `OurFactory.jsx`, `WeBelieve.jsx` | `/about-us` |
+| Աշխարհագրություն | Sergey | `app/geography/*` | `/geography` |
+| Կապ | Vahram | `app/contact/*` | `/contact` |
+
+Եթե 2+ հոգի նույն folder-ում են (օրինակ `app/about-us` կամ Home page-ը)՝ ամեն մեկը գրում ա **իր առանձին component-ը** `_components/`-ում, իսկ `page.jsx`-ում ընդհամենը import ա անում։ `page.jsx`-ում conflict-ը Vahe-ն ա լուծում ինտեգրման ժամանակ։ Ամեն մեկն իր section-ի համար db collection(-ներ)ը ինքն ա որոշում ու ավելացնում իր `db.json`-ում, §5-ի կանոններով։
 
 ## 7. Git — ինչպես աշխատել ու ուղարկել
 
